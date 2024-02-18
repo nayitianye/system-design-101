@@ -14,7 +14,7 @@
 
 <a href="https://trendshift.io/repositories/3709" target="_blank"><img src="https://trendshift.io/api/badge/repositories/3709" alt="ByteByteGoHq%2Fsystem-design-101 | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 
-# System Design 101
+# 系统设计创造营101
 
 Explain complex systems using visuals and simple terms. 
 
@@ -107,25 +107,25 @@ Whether you're preparing for a System Design Interview or you simply want to und
 
 <!-- /TOC -->
 
-## Communication protocols
+## 通信协议
 
-Architecture styles define how different components of an application programming interface (API) interact with one another. As a result, they ensure efficiency, reliability, and ease of integration with other systems by providing a standard approach to designing and building APIs. Here are the most used styles:
+架构风格定义了应用程序编程接口（API）的不同组件如何彼此交互。因此，它们通过为设计和构建API提供标准方法，确保了效率、可靠性和与其他系统的易于集成。以下是最常用的风格：
 
 <p>
   <img src="images/api-architecture-styles.png" style="width: 640px">
 </p>
 
-- SOAP: 
+- SOAP(Simple Object Access Protocol，简单对象访问协议): 
 
-  Mature, comprehensive, XML-based
+  成熟、全面、基于XML的
   
-  Best for enterprise applications 
+  最适合企业应用
 
-- RESTful: 
+- RESTful(Representational State Transfer): 
 
-  Popular, easy-to-implement, HTTP methods 
+  流行、易于实现、HTTP方法
 
-  Ideal for web services 
+  非常适合Web服务
 
 - GraphQL: 
 
@@ -714,11 +714,11 @@ There are 5 components of the SQL language:
 
 For a backend engineer, you may need to know most of it. As a data analyst, you may need to have a good understanding of DQL. Select the topics that are most relevant to you. 
 
-## Cache
+## 缓存
 
-### Data is cached everywhere
+### 数据被缓存在任何地方
 
-This diagram illustrates where we cache data in a typical architecture.
+此图说明了在典型架构中缓存数据的位置。
 
 <p>
   <img src="images/where do we cache data.jpeg" style="width: 720px" />
@@ -727,9 +727,9 @@ This diagram illustrates where we cache data in a typical architecture.
 
 There are **multiple layers** along the flow.
 
-1. Client apps: HTTP responses can be cached by the browser. We request data over HTTP for the first time, and it is returned with an expiry policy in the HTTP header; we request data again, and the client app tries to retrieve the data from the browser cache first.
+1. 客户端应用程序：HTTP 响应可以由浏览器缓存。我们第一次通过 HTTP 请求数据，并且 HTTP 标头中会返回一个过期策略；我们再次请求数据，客户端应用程序会尝试首先从浏览器缓存中检索数据。
 2. CDN: CDN caches static web resources. The clients can retrieve data from a CDN node nearby.
-3. Load Balancer: The load Balancer can cache resources as well.
+3. Load Balancer: The load Balancer can cache resources as well.`
 4. Messaging infra: Message brokers store messages on disk first, and then consumers retrieve them at their own pace. Depending on the retention policy, the data is cached in Kafka clusters for a period of time.
 5. Services: There are multiple layers of cache in a service. If the data is not cached in the CPU cache, the service will try to retrieve the data from memory. Sometimes the service has a second-level cache to store data on disk.
 6. Distributed Cache: Distributed cache like Redis holds key-value pairs for multiple services in memory. It provides much better read/write performance than the database.
@@ -741,18 +741,16 @@ There are **multiple layers** along the flow.
 - Transaction log: record all the transactions and database updates
 - Replication Log: used to record the replication state in a database cluster
 
-### Why is Redis so fast? 
+### Redis为什么这么快？
 
-There are 3 main reasons as shown in the diagram below.
+如下图所示，主要有三个原因。
 
 <p>
   <img src="images/why_redis_fast.jpeg" />
 </p>
-
-
-1. Redis is a RAM-based data store. RAM access is at least 1000 times faster than random disk access.
-2. Redis leverages IO multiplexing and single-threaded execution loop for execution efficiency.
-3. Redis leverages several efficient lower-level data structures.
+1. Redis是一个基于RAM的数据存储。RAM访问速度至少是随机磁盘访问速度的1000倍。
+2. Redis利用IO复用和单线程执行循环来提高执行效率。
+3. Redis利用了几种高效的低级别数据结构。
 
 Question: Another popular in-memory store is Memcached. Do you know the differences between Redis and Memcached?
 
@@ -769,7 +767,7 @@ There is more to Redis than just caching.
 
 Redis can be used in a variety of scenarios as shown in the diagram. 
 
-- Session 
+-  Session 
 
   We can use Redis to share user session data among different services. 
 
@@ -809,20 +807,22 @@ Redis can be used in a variety of scenarios as shown in the diagram.
 
   We can use ZSet to sort the articles. 
 
-### Top caching strategies
+### 顶级缓存策略
 
 Designing large-scale systems usually requires careful consideration of caching. 
 Below are five caching strategies that are frequently utilized. 
+
+设计大型系统通常需要仔细考虑缓存。
+
+以下是常用的五种缓存策略。
 
 <p>
   <img src="images/top_caching_strategy.jpeg" style="width: 680px" />
 </p>
 
+## 微服务架构
 
-
-## Microservice architecture
-
-### What does a typical microservice architecture look like? 
+### 典型的微服务架构是什么样子？
 
 <p>
   <img src="images/typical-microservice-arch.jpg" style="width: 520px" />
